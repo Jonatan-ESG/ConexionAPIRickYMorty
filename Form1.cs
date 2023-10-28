@@ -26,7 +26,9 @@ namespace ConexionAPIRickYMorty
 
                 fotoPersonaje.Click += (sender, e) =>
                 {
-                    MessageBox.Show($"{personaje.id}");
+                    // MessageBox.Show($"{}");
+                    VistaDetalladaPersonaje v = new VistaDetalladaPersonaje(personaje.id);
+                    v.Show();
                 };
 
                 contenedorPersonajes.Controls.Add(fotoPersonaje);

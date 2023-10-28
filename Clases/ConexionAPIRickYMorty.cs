@@ -32,5 +32,25 @@ namespace ConexionAPIRickYMorty.Clases
 
             }
         }
+
+        public async Task<Character> obtenerPersonaje(int idPersonaje)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    string respuesta = await client.GetStringAsync($"{API_URL}/character/{idPersonaje}");
+
+                    Character resultadoSerializado = JsonConvert.DeserializeObject<Character>(respuesta);
+
+                    return resultadoSerializado;
+                }
+                catch (Exception ex)
+                {
+                    return new Character();
+                }
+
+            }
+        }
     }
 }
